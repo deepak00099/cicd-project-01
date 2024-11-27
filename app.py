@@ -1,10 +1,5 @@
-from flask import Flask
+def main():
+    print("Hello, World! This is a simple Python application.")
 
-app = Flask(__name__)
-
-@app.route('/')
-def hello():
-    return 'Hello, world!'
-
-if __name__ == '__main__':
-    app.run()
+if __name__ == "__main__":
+    main()
