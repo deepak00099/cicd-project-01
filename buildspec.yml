@@ -9,7 +9,9 @@ phases:
       - pip install -r requirements.txt
   build:
     commands:
+      - mkdir -p build  # Create the build directory
       - echo Build completed on `date`
+      # Add commands here to generate output files in the build/ directory
   post_build:
     commands:
       - echo "Build completed successfully"
@@ -18,5 +20,4 @@ artifacts:
   files:
     - '**/*'
   discard-paths: yes
-  base-directory: build/
-
+  base-directory: build/  # Ensure this directory is created and populated
