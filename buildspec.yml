@@ -9,15 +9,15 @@ phases:
       - pip install -r requirements.txt
   build:
     commands:
-      - mkdir -p build  # Create the build directory
-      - echo Build completed on `date`
-      # Add commands here to generate output files in the build/ directory
+      - echo Building the application...
+      - mkdir -p build  # Create a build directory if it doesn't exist
+      - cp -r * build/  # Copy all files to the build directory (adjust as needed)
+      - cd build
+      - zip -r ../my_application.zip .  # Create a ZIP file of the build directory contents
   post_build:
     commands:
       - echo "Build completed successfully"
 
 artifacts:
   files:
-    - '**/*'
-  discard-paths: yes
-  base-directory: build/  # Ensure this directory is created and populated
+    - my_application.zip  # Specify the ZIP file as an artifact
